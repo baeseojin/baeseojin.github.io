@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>실시간 대기오염정보 조회 서비스</title> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .centered-div {
+          display: flex;
+          justify-content: center; /* Horizontally center */
+          /*align-items: center;  Vertically center */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="centered-div">
+        <nav class="navbar navbar-expand-sm bg-light navbar-light">
+            <h3 style="color: rgb(0, 0, 0);">실시간 대기오염정보 조회 서비스</h3>
+        </nav>
+    </div>
+    <div class="row mt-2">
+        <div class="col-lg-4">
+            <div id="map" style="height: 400px;"></div>
+        </div>
+        <div class="col-lg-4 mt-2">
+            <select name="location" onChange="selectLoc(this.value);">
+                <option value="">지역선택</option>
+                <option value="서울특별시">서울</option>
+                <option value="부산광역시">부산</option>
+                <option value="대구광역시">대구</option>
+                <option value="인천광역시">인천</option>
+                <option value="광주광역시">광주</option>
+                <option value="대전광역시">대전</option>
+                <option value="울산광역시">울산</option>
+                <option value="경기도">경기도</option>
+                <option value="강원도">강원도</option>
+                <option value="충청북도">충청북도</option>
+                <option value="충청남도">충청남도</option>
+                <option value="전라북도">전라북도</option>
+                <option value="전라남도">전라남도</option> 
+                <option value="경상북도">경상북도</option>
+                <option value="경상남도">경상남도</option>
+                <option value="제주특별자치도">제주</option>
+            </select>		
+            <button id="myloc" onclick="moveTomyLocation();">내위치</button> 
+            <label id="myloctext">현재위치</label>
+
+            <table class="table">
+                <caption><h5>실시간 대기오염정보 조회</h3></caption>
+                <tr class="table-primary">
+                    <th>측정날짜</th>
+                    <td id="d_1">로딩중</td>
+                </tr>
+                <tr class="table-success">
+                    <th>측정소</th>
+                    <td id="d_2">로딩중</td>
+                </tr>
+                <tr class="table-danger">
+                    <th>통합지수</th>
+                    <td id="d_3">로딩중</td>
+                </tr>
+                <tr class="table-info">
+                    <th>미세먼지</th>
+                    <td id="d_4">로딩중</td>
+                </tr>
+                <tr class="table-warning">
+                    <th>오존</th>
+                    <td id="d_5">로딩중</td>
+                </tr>
+                <tr class="table-active">
+                    <th>일산화 탄소</th>
+                    <td id="d_6">로딩중</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-lg-4 mt-2">
+            <table class="table table-striped table-bordered">
+                <caption><h5>미세먼지(PM10) 예보통보 조회</h5></caption>
+                <tr>
+                    <th>통보시간</th>
+                    <td id="f_1">로딩중</td>
+                </tr>
+                <tr>
+                    <th>예보등급</th>
+                    <td id="f_2">로딩중</td>
+                </tr>
+                <tr>
+                    <th>발생원인</th>
+                    <td id="f_3">로딩중</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=382b4aedd9eab70cc8598be3e2a5f21f&libraries=services"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="dust_ps_netlify.js"></script>
+</body>
+</html>
